@@ -14,16 +14,28 @@ body {
   }
 }
 
-/* Needle Full Rotation Animation */
-@keyframes needleSweep {
-  0% { transform: translateX(-50%) rotate(-120deg); }
-  50% { transform: translateX(-50%) rotate(120deg); }
-  100% { transform: translateX(-50%) rotate(-120deg); }
+/* Aston Martin Left Speedometer Sweep (-110deg to 110deg) */
+@keyframes needleSweepAstonLeft {
+  0% { transform: translateX(-50%) rotate(-110deg); }
+  50% { transform: translateX(-50%) rotate(110deg); }
+  100% { transform: translateX(-50%) rotate(-110deg); }
 }
 
-.needle-sweep-active {
-  animation: needleSweep 2.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+.needle-sweep-aston-left {
+  animation: needleSweepAstonLeft 2.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
 }
+
+/* Aston Martin Right Tachometer Sweep (-130deg to 90deg) */
+@keyframes needleSweepAstonRight {
+  0% { transform: translateX(-50%) rotate(-130deg); }
+  50% { transform: translateX(-50%) rotate(90deg); }
+  100% { transform: translateX(-50%) rotate(-130deg); }
+}
+
+.needle-sweep-aston-right {
+  animation: needleSweepAstonRight 2.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+}
+
 
 @keyframes engine-crank {
   0% { transform: translate(1px, 1px) rotate(0deg); }
