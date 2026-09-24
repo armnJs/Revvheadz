@@ -69,7 +69,6 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
         cranking ? "cranking-shake" : ""
       }`}
     >
-      {/* Background radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_75%)] pointer-events-none" />
 
       {/* CLUSTER CONTAINER FRAME */}
@@ -85,10 +84,8 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               panelReady ? "scale-100 opacity-100 cursor-pointer" : "scale-95 opacity-50 pointer-events-none"
             }`}
           >
-            {/* Chrome Outer Ring */}
             <div className="absolute inset-1 rounded-full bg-gradient-to-br from-slate-100 via-slate-400 to-slate-800 p-0.5 shadow-inner">
               <div className="w-full h-full bg-[#0a0b0d] rounded-full flex items-center justify-center">
-                {/* Backlit Status Ring */}
                 <div
                   className={`absolute inset-1.5 rounded-full border-2 transition-all duration-300 ${
                     igniting
@@ -99,7 +96,6 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
                   }`}
                 />
 
-                {/* Physical Push Button */}
                 <button
                   onClick={handleStartIgnition}
                   disabled={!panelReady}
@@ -125,147 +121,178 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
         <div className="w-full flex items-center justify-center">
           <svg viewBox="0 0 900 340" className="w-full h-auto drop-shadow-2xl">
             <defs>
-              {/* Silver Metallic Chrome Gradients */}
+              {/* Metallic Silver Chrome Gradients */}
               <linearGradient id="silverTrim" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#f0f3f7" />
-                <stop offset="30%" stopColor="#8a929e" />
-                <stop offset="55%" stopColor="#dbe1e8" />
-                <stop offset="80%" stopColor="#414752" />
-                <stop offset="100%" stopColor="#e2e8f0" />
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="25%" stopColor="#94a3b8" />
+                <stop offset="50%" stopColor="#f1f5f9" />
+                <stop offset="75%" stopColor="#334155" />
+                <stop offset="100%" stopColor="#cbd5e1" />
               </linearGradient>
 
               <linearGradient id="innerBezel" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#2c3038" />
-                <stop offset="100%" stopColor="#0a0b0d" />
+                <stop offset="0%" stopColor="#282c34" />
+                <stop offset="100%" stopColor="#0b0c0e" />
               </linearGradient>
             </defs>
 
-            {/* 1. LEFT AUXILIARY FUEL GAUGE */}
+            {/* 1. LEFT AUXILIARY FUEL GAUGE (Fuel Icon on Left, E/F Arc on Right) */}
             <g transform="translate(110, 170)">
-              {/* Silver Ring */}
               <circle r="60" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="6" />
-              <circle r="52" fill="none" stroke="#333842" strokeWidth="1" strokeDasharray="3,3" />
+              <circle r="52" fill="none" stroke="#333842" strokeWidth="1" />
               
-              {/* Fuel Dial Labels */}
-              <text x="-32" y="10" fill="#cbd5e1" fontSize="12" fontFamily="monospace" fontWeight="bold">E</text>
-              <text x="22" y="10" fill="#cbd5e1" fontSize="12" fontFamily="monospace" fontWeight="bold">F</text>
+              {/* Right Fuel Arc Line */}
+              <path d="M 44 -15 A 48 48 0 0 1 44 25" fill="none" stroke="#64748b" strokeWidth="2.5" strokeDasharray="3,3" />
+              <path d="M 44 20 A 48 48 0 0 1 42 28" fill="none" stroke="#ef4444" strokeWidth="3" />
               
-              {/* Fuel Icon */}
-              <path d="M-4 22 h8 v10 h-8 z M2 22 v-4 a2 2 0 0 0 -4 0 v4" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
-              
+              {/* Labels */}
+              <text x="-30" y="2" fill="#e2e8f0" fontSize="16" fontFamily="sans-serif">⛽</text>
+              <text x="26" y="-12" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">F</text>
+              <text x="26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">E</text>
+
               {/* Fuel Needle */}
-              <g transform={`rotate(${sweeping ? 35 : 15})`}>
-                <line x1="0" y1="0" x2="0" y2="-42" stroke="#eab308" strokeWidth="2.5" strokeLinecap="round" />
-                <circle r="6" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
+              <g transform={`rotate(${sweeping ? -15 : 25})`}>
+                <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
+                <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
             </g>
 
-            {/* 2. LEFT MAIN SPEEDOMETER DIAL (20 to 200 MPH / Counter-clockwise layout matching Aston Martin spec) */}
+            {/* 2. LEFT MAIN SPEEDOMETER DIAL (20 to 200 MPH - Clockwise layout) */}
             <g transform="translate(310, 170)">
-              {/* Outer Silver Chrome Bezel */}
               <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
               <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
-              <circle r="108" fill="none" stroke="#333842" strokeWidth="1" strokeDasharray="2,4" />
 
-              {/* Speedometer Scale Numbers */}
-              <g textAnchor="middle" dominantBaseline="central" fill="#f8fafc" fontSize="13" fontFamily="monospace" fontWeight="bold">
-                <text x="-75" y="65">20</text>
-                <text x="-95" y="25">40</text>
-                <text x="-98" y="-20">60</text>
-                <text x="-80" y="-62">80</text>
-                <text x="-48" y="-90">100</text>
-                <text x="0" y="-98">120</text>
-                <text x="48" y="-90">140</text>
-                <text x="80" y="-62">160</text>
-                <text x="95" y="-20">180</text>
-                <text x="80" y="25">200</text>
+              {/* Major Tick Marks & Numbers */}
+              {/* 20 */} <line x1="-80" y1="70" x2="-68" y2="59" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 40 */} <line x1="-102" y1="28" x2="-88" y2="24" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 60 */} <line x1="-106" y1="-18" x2="-90" y2="-15" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 80 */} <line x1="-88" y1="-62" x2="-74" y2="-52" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 100 */} <line x1="-52" y1="-94" x2="-44" y2="-79" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 120 */} <line x1="0" y1="-106" x2="0" y2="-90" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 140 */} <line x1="52" y1="-94" x2="44" y2="-79" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 160 */} <line x1="88" y1="-62" x2="74" y2="-52" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 180 */} <line x1="106" y1="-18" x2="90" y2="-15" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 200 */} <line x1="102" y1="28" x2="88" y2="24" stroke="#cbd5e1" strokeWidth="2.5" />
+
+              {/* Numbers */}
+              <g textAnchor="middle" dominantBaseline="central" fill="#f8fafc" fontSize="13" fontFamily="sans-serif">
+                <text x="-58" y="52">20</text>
+                <text x="-76" y="20">40</text>
+                <text x="-78" y="-12">60</text>
+                <text x="-62" y="-45">80</text>
+                <text x="-36" y="-68">100</text>
+                <text x="0" y="-76">120</text>
+                <text x="36" y="-68">140</text>
+                <text x="62" y="-45">160</text>
+                <text x="78" y="-12">180</text>
+                <text x="74" y="20">200</text>
               </g>
 
-              {/* Center Digital LCD Screen */}
-              <rect x="-45" y="-18" width="90" height="36" rx="4" fill="#040507" stroke="#334155" strokeWidth="1.5" />
-              <text x="0" y="2" textAnchor="middle" dominantBaseline="central" fill="#38bdf8" fontSize="13" fontFamily="monospace" fontWeight="bold">
-                {sweeping ? "185 MPH" : panelReady ? "SYS OK" : "DIAG"}
+              {/* Right Side Digital LCD Window (Aston Martin Spec) */}
+              <rect x="10" y="-22" width="76" height="44" rx="3" fill="#040507" stroke="#475569" strokeWidth="1.5" />
+              <text x="48" y="0" textAnchor="middle" dominantBaseline="central" fill="#38bdf8" fontSize="12" fontFamily="monospace" fontWeight="bold">
+                {sweeping ? "185" : panelReady ? "SYS OK" : "DIAG"}
               </text>
 
-              <text x="0" y="62" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="monospace" fontWeight="bold" letterSpacing="2">
-                MPH <tspan fontSize="8" fill="#64748b">km/h</tspan>
+              <text x="-36" y="52" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="sans-serif" fontStyle="italic">
+                MPH
               </text>
-
-              {/* Speedometer Needle (Left to Right Sweep) */}
-              <g transform={`rotate(${sweeping ? 110 : -130})`} className="transition-transform duration-75">
-                <line x1="0" y1="12" x2="0" y2="-102" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" filter="drop-shadow(0px 0px 4px rgba(255,255,255,0.8))" />
-                <circle r="12" fill="#0f172a" stroke="#94a3b8" strokeWidth="2.5" />
-              </g>
-            </g>
-
-            {/* 3. RIGHT MAIN TACHOMETER DIAL (0 to 8 RPM / Counter-clockwise orientation right to left) */}
-            <g transform="translate(590, 170)">
-              {/* Outer Silver Chrome Bezel */}
-              <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
-              <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
-              <circle r="108" fill="none" stroke="#333842" strokeWidth="1" strokeDasharray="2,4" />
-
-              {/* Tachometer Numbers (Counter-clockwise layout: 0 bottom left -> 8 bottom right) */}
-              <g textAnchor="middle" dominantBaseline="central" fill="#f8fafc" fontSize="14" fontFamily="monospace" fontWeight="bold">
-                <text x="-75" y="65">0</text>
-                <text x="-95" y="25">1</text>
-                <text x="-98" y="-20">2</text>
-                <text x="-80" y="-62">3</text>
-                <text x="-48" y="-90">4</text>
-                <text x="0" y="-98">5</text>
-                <text x="48" y="-90" fill="#f87171">6</text>
-                <text x="80" y="-62" fill="#ef4444">7</text>
-                <text x="95" y="-20" fill="#dc2626">8</text>
-              </g>
-
-              {/* Center Digital LCD Screen */}
-              <rect x="-45" y="-18" width="90" height="36" rx="4" fill="#040507" stroke="#334155" strokeWidth="1.5" />
-              <text x="0" y="2" textAnchor="middle" dominantBaseline="central" fill="#f59e0b" fontSize="13" fontFamily="monospace" fontWeight="bold">
-                {sweeping ? "7200 RPM" : panelReady ? "READY" : "DIAG"}
-              </text>
-
-              <text x="0" y="58" textAnchor="middle" fill="#94a3b8" fontSize="10" fontFamily="monospace" fontWeight="bold" letterSpacing="1">
-                RPM
-              </text>
-              <text x="0" y="70" textAnchor="middle" fill="#64748b" fontSize="8" fontFamily="monospace">
+              <text x="-36" y="64" textAnchor="middle" fill="#64748b" fontSize="8" fontFamily="monospace">
                 X 1000
               </text>
 
-              {/* Tachometer Needle (Right to Left Counter Sweep) */}
-              <g transform={`rotate(${sweeping ? 110 : -130})`} className="transition-transform duration-75">
-                <line x1="0" y1="12" x2="0" y2="-102" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" filter="drop-shadow(0px 0px 4px rgba(255,255,255,0.8))" />
-                <circle r="12" fill="#0f172a" stroke="#94a3b8" strokeWidth="2.5" />
+              {/* Needle (Sweeps Left to Right) */}
+              <g transform={`rotate(${sweeping ? 115 : -125})`} className="transition-transform duration-75">
+                <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
+                <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
             </g>
 
-            {/* 4. RIGHT AUXILIARY ENGINE TEMP GAUGE */}
+            {/* 3. RIGHT MAIN TACHOMETER DIAL (Aston Martin Spec: 0 starts bottom left, sweeps COUNTER-CLOCKWISE up right to left: 1, 2, 3, 4, 5, 6, 7, 8 top left) */}
+            <g transform="translate(590, 170)">
+              <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
+              <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
+
+              {/* Major Ticks in Counter-Clockwise Order */}
+              {/* 0 */} <line x1="-52" y1="94" x2="-44" y2="79" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 1 */} <line x1="0" y1="106" x2="0" y2="90" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 2 */} <line x1="52" y1="94" x2="44" y2="79" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 3 */} <line x1="88" y1="62" x2="74" y2="52" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 4 */} <line x1="106" y1="18" x2="90" y2="15" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 5 */} <line x1="102" y1="-28" x2="88" y2="-24" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 6 */} <line x1="78" y1="-70" x2="66" y2="-60" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 7 */} <line x1="38" y1="-98" x2="32" y2="-84" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 8 */} <line x1="-18" y1="-104" x2="-15" y2="-88" stroke="#cbd5e1" strokeWidth="2.5" />
+
+              {/* Numbers */}
+              <g textAnchor="middle" dominantBaseline="central" fill="#f8fafc" fontSize="14" fontFamily="sans-serif">
+                <text x="-36" y="68">0</text>
+                <text x="0" y="76">1</text>
+                <text x="36" y="68">2</text>
+                <text x="62" y="45">3</text>
+                <text x="76" y="12">4</text>
+                <text x="74" y="-20">5</text>
+                <text x="56" y="-52">6</text>
+                <text x="26" y="-72">7</text>
+                <text x="-12" y="-76">8</text>
+              </g>
+
+              {/* Left Side Digital LCD Window (Aston Martin Spec) */}
+              <rect x="-86" y="-22" width="76" height="44" rx="3" fill="#040507" stroke="#475569" strokeWidth="1.5" />
+              <text x="-48" y="0" textAnchor="middle" dominantBaseline="central" fill="#f59e0b" fontSize="12" fontFamily="monospace" fontWeight="bold">
+                {sweeping ? "7200" : panelReady ? "READY" : "DIAG"}
+              </text>
+
+              <text x="-60" y="48" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="sans-serif" fontStyle="italic">
+                RPM
+              </text>
+              <text x="-60" y="60" textAnchor="middle" fill="#64748b" fontSize="8" fontFamily="monospace">
+                X 1000
+              </text>
+
+              {/* Needle (Counter-Sweeps Counter-Clockwise from 0 to 8) */}
+              <g transform={`rotate(${sweeping ? -120 : 125})`} className="transition-transform duration-75">
+                <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
+                <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
+              </g>
+            </g>
+
+            {/* 4. RIGHT AUXILIARY ENGINE TEMP GAUGE (Temp Icon on Right, C/H Arc on Left) */}
             <g transform="translate(790, 170)">
-              {/* Silver Ring */}
               <circle r="60" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="6" />
-              <circle r="52" fill="none" stroke="#333842" strokeWidth="1" strokeDasharray="3,3" />
+              <circle r="52" fill="none" stroke="#333842" strokeWidth="1" />
               
-              {/* Temp Dial Labels */}
-              <text x="-32" y="10" fill="#cbd5e1" fontSize="12" fontFamily="monospace" fontWeight="bold">C</text>
-              <text x="22" y="10" fill="#f87171" fontSize="12" fontFamily="monospace" fontWeight="bold">H</text>
-              
-              {/* Temp Icon */}
-              <path d="M0 20 v10 M-4 28 h8" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
-              
+              {/* Left Temp Arc Line */}
+              <path d="M -44 -15 A 48 48 0 0 0 -44 25" fill="none" stroke="#64748b" strokeWidth="2.5" strokeDasharray="3,3" />
+              <path d="M -44 -15 A 48 48 0 0 1 -42 -22" fill="none" stroke="#ef4444" strokeWidth="3" />
+
+              {/* Labels */}
+              <text x="26" y="2" fill="#e2e8f0" fontSize="16" fontFamily="sans-serif">🌡️</text>
+              <text x="-26" y="-12" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">H</text>
+              <text x="-26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">C</text>
+
               {/* Temp Needle */}
-              <g transform={`rotate(${sweeping ? 10 : -20})`}>
-                <line x1="0" y1="0" x2="0" y2="-42" stroke="#eab308" strokeWidth="2.5" strokeLinecap="round" />
-                <circle r="6" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
+              <g transform={`rotate(${sweeping ? -15 : -45})`}>
+                <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
+                <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
             </g>
 
-            {/* WINGED LOGO IN CENTER BOTTOM */}
-            <g transform="translate(450, 305)">
-              <path d="M-60 0 Q-20 -8 0 0 Q20 -8 60 0 Q20 -2 -60 0 Z" fill="none" stroke="#94a3b8" strokeWidth="1.5" />
-              <circle r="8" fill="#1e293b" stroke="#94a3b8" strokeWidth="1" />
-              <text x="0" y="18" textAnchor="middle" fill="#cbd5e1" fontSize="10" fontFamily="serif" fontWeight="bold" letterSpacing="4">
+            {/* ASTON MARTIN WINGED EMBLEM IN BOTTOM LEFT */}
+            <g transform="translate(100, 290)">
+              <path d="M-40 0 Q-15 -6 0 0 Q15 -6 40 0 Q15 -1.5 -40 0 Z" fill="none" stroke="#94a3b8" strokeWidth="1.2" />
+              <circle r="6" fill="#1e293b" stroke="#94a3b8" strokeWidth="1" />
+              <text x="0" y="14" textAnchor="middle" fill="#cbd5e1" fontSize="8" fontFamily="serif" fontWeight="bold" letterSpacing="3">
+                ASTON MARTIN
+              </text>
+            </g>
+
+            {/* REVVHEADZ BRANDING CENTER BOTTOM */}
+            <g transform="translate(450, 310)">
+              <text x="0" y="0" textAnchor="middle" fill="#e2e8f0" fontSize="11" fontFamily="serif" fontWeight="bold" letterSpacing="5">
                 REVVHEADZ
               </text>
-              <text x="0" y="28" textAnchor="middle" fill="#64748b" fontSize="7" fontFamily="monospace" letterSpacing="2">
+              <text x="0" y="12" textAnchor="middle" fill="#64748b" fontSize="7" fontFamily="monospace" letterSpacing="2">
                 VIRTUAL AUTOMOTIVE OS
               </text>
             </g>
@@ -287,5 +314,6 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
     </div>
   );
 }
+
 
 
