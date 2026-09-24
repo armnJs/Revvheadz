@@ -192,7 +192,7 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </text>
 
               {/* Speedometer Needle (Resting at 0 MPH) */}
-              <g transform={`rotate(${sweeping ? 115 : -142})`} className="transition-transform duration-75">
+              <g transform={`rotate(${sweeping ? 96 : -141})`} className="transition-transform duration-75">
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
                 <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
@@ -235,7 +235,7 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </text>
 
               {/* Tachometer Needle (Resting at 0 RPM at bottom-left) */}
-              <g transform={`rotate(${sweeping ? -351 : 9})`} className="transition-transform duration-75">
+              <g transform={`rotate(${sweeping ? -10 : 209})`} className="transition-transform duration-75">
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
                 <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
