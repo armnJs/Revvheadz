@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <title>RevvHeadz - Service &amp; Repair</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+        --primary-color: #1173d4;
+        --background-color: #111418;
+        --card-background-color: #1c2127;
+        --text-primary-color: #ffffff;
+        --text-secondary-color: #9dabb9;
+        --border-color: #3b4754;
+      }
+      .form-input {
+        background-color: var(--card-background-color);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary-color);
+      }
+      .form-input:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(17, 115, 212, 0.5);
+      }
+    </style>
+</head>
+
+<body class="bg-[var(--background-color)]" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-black/10 p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5h3eNbgJ0tqvuuyVhGl8DtpBEt4-woIiMtprCWMEtpx6QW-Aq5IRz-fP-YFGfn2jyIgvINequF0dJtaPca9iWRDjXHX1BYV3rg3BWH-ZHMaXketSoPHZAzfwR4kgzUi3WntX0QEd8mWEGMkDE6cUgRbHcmpfsMzgC8k3bN0KGLGd6-fghd3zoz4U57LeqTSFIZC6ungeO4QvwYYAUd_9wtrMGyogATWJ3UyGAzf2IXZhx676mDu0bjBuBj6tc3Wvbaf2M1mDzd1w");'>
+                    </div>
+                    <div>
+                        <h1 class="text-white text-lg font-bold">Sophia Carter</h1>
+                        <p class="text-sm text-[var(--text-secondary-color)]">Premium Member</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-2">
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[var(--text-secondary-color)] hover:bg-[var(--card-background-color)] hover:text-white transition-colors"
+                        href="#">
+                        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium">Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[var(--text-secondary-color)] hover:bg-[var(--card-background-color)] hover:text-white transition-colors"
+                        href="#">
+                        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M240,112H229.2L201.42,49.5A16,16,0,0,0,186.8,40H69.2a16,16,0,0,0-14.62,9.5L26.8,112H16a8,8,0,0,0,0,16h8v80a16,16,0,0,0,16,16H64a16,16,0,0,0,16-16V192h96v16a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V128h8a8,8,0,0,0,0-16ZM69.2,56H186.8l24.89,56H44.31ZM64,208H40V192H64Zm128,0V192h24v16Zm24-32H40V128H216ZM56,152a8,8,0,0,1,8-8H80a8,8,0,0,1,0,16H64A8,8,0,0,1,56,152Zm112,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,152Z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium">Vehicles</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[var(--text-secondary-color)] hover:bg-[var(--card-background-color)] hover:text-white transition-colors"
+                        href="#">
+                        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M241,69.66,221.66,50.34a8,8,0,0,0-11.32,11.32L229.66,81A8,8,0,0,1,232,86.63V168a8,8,0,0,1-16,0V128a24,24,0,0,0-24-24H176V56a24,24,0,0,0-24-24H72A24,24,0,0,0,48,56V208H32a8,8,0,0,0,0,16H192a8,8,0,0,0,0-16H176V120h16a8,8,0,0,1,8,8v40a24,24,0,0,0,48,0V86.63A23.85,23.85,0,0,0,241,69.66ZM64,208V56a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8V208Zm80-96a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h48A8,8,0,0,1,144,112Z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium">Fuel</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[var(--primary-color)] text-white transition-colors"
+                        href="#">
+                        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M232,96a72,72,0,0,1-100.94,66L79,222.22c-.12.14-.26.29-.39.42a32,32,0,0,1-45.26-45.26c.14-.13.28-.27.43-.39L94,124.94a72.07,72.07,0,0,1,83.54-98.78,8,8,0,0,1,3.93,13.19L144,80l5.66,26.35L176,112l40.65-37.52a8,8,0,0,1,13.19,3.93A72.6,72.6,0,0,1,232,96Z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium">Service &amp; Repair</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[var(--text-secondary-color)] hover:bg-[var(--card-background-color)] hover:text-white transition-colors"
+                        href="#">
+                        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium">Reminders</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[var(--text-secondary-color)] hover:bg-[var(--card-background-color)] hover:text-white transition-colors"
+                    href="#">
+                    <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-40V152a8,8,0,0,1,16,0v24a8,8,0,0,1-16,0Zm16-80a12,12,0,1,1-12,12A12,12,0,0,1,136,96Z">
+                        </path>
+                    </svg>
+                    <span class="text-sm font-medium">Help</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[var(--text-secondary-color)] hover:bg-[var(--card-background-color)] hover:text-white transition-colors"
+                    href="#">
+                    <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M112,216a8,8,0,0,1-8,8H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32h56a8,8,0,0,1,0,16H48V208h56A8,8,0,0,1,112,216Zm110.83-101.17a8,8,0,0,0-11.31,0l-64,64a8,8,0,0,0,0,11.31l24,24a8,8,0,0,0,11.32,0l64-64a8,8,0,0,0,0-11.31ZM192,169.31,148.69,126l48-48L208,89.31ZM96,96a8,8,0,0,0,8-8V72a8,8,0,0,0-16,0V88A8,8,0,0,0,96,96Z">
+                        </path>
+                    </svg>
+                    <span class="text-sm font-medium">Log out</span>
+                </a>
+            </div>
+        </aside>
+        <main class="flex-1 p-8">
+            <div class="mb-8">
+                <h1 class="text-4xl font-bold text-white">Service &amp; Repair</h1>
+                <p class="text-[var(--text-secondary-color)]">Manage your vehicle's service and repair history.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-[var(--card-background-color)] p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-white mb-6">Add New Service</h2>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-[var(--text-primary-color)] mb-2"
+                                for="date">Date</label>
+                            <input class="form-input w-full rounded-md h-12 px-4" id="date" type="date" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-[var(--text-primary-color)] mb-2"
+                                for="serviceType">Service Type</label>
+                            <input class="form-input w-full rounded-md h-12 px-4 placeholder:text-gray-500"
+                                id="serviceType" placeholder="e.g., Oil Change" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-[var(--text-primary-color)] mb-2"
+                                for="workshop">Workshop</label>
+                            <input class="form-input w-full rounded-md h-12 px-4 placeholder:text-gray-500"
+                                id="workshop" placeholder="e.g., AutoCare Center" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-[var(--text-primary-color)] mb-2"
+                                for="cost">Cost</label>
+                            <div class="relative">
+                                <span
+                                    class="absolute inset-y-0 left-0 flex items-center pl-3 text-[var(--text-secondary-color)]">$</span>
+                                <input class="form-input w-full rounded-md h-12 pl-7 pr-4 placeholder:text-gray-500"
+                                    id="cost" placeholder="0.00" type="number" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-[var(--text-primary-color)] mb-2"
+                                for="notes">Notes</label>
+                            <textarea class="form-input w-full rounded-md p-4 min-h-32 placeholder:text-gray-500"
+                                id="notes" placeholder="Additional notes..."></textarea>
+                        </div>
+                        <button
+                            class="w-full flex items-center justify-center rounded-md h-12 px-4 bg-[var(--primary-color)] text-white font-bold text-sm hover:bg-blue-600 transition-colors"
+                            type="submit">
+                            <svg class="mr-2" fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z">
+                                </path>
+                            </svg>
+                            Add Service
+                        </button>
+                    </form>
+                </div>
+                <div class="lg:col-span-2 bg-[var(--card-background-color)] p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-white mb-6">Service History</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-[var(--border-color)]">
+                                    <th class="p-4 text-sm font-bold text-white">Date</th>
+                                    <th class="p-4 text-sm font-bold text-white">Service Type</th>
+                                    <th class="p-4 text-sm font-bold text-white">Workshop</th>
+                                    <th class="p-4 text-sm font-bold text-white text-right">Cost</th>
+                                    <th class="p-4 text-sm font-bold text-white">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-[var(--border-color)]">
+                                <tr>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">2024-05-15</td>
+                                    <td class="p-4 text-sm text-white font-medium">Oil Change</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">AutoCare Center</td>
+                                    <td class="p-4 text-sm text-white font-medium text-right">$75.00</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)] max-w-xs truncate">Regular
+                                        oil change with synthetic blend</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">2024-02-20</td>
+                                    <td class="p-4 text-sm text-white font-medium">Tire Rotation</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">QuickFix Garage</td>
+                                    <td class="p-4 text-sm text-white font-medium text-right">$50.00</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)] max-w-xs truncate">Rotated
+                                        all four tires</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">2023-11-10</td>
+                                    <td class="p-4 text-sm text-white font-medium">Brake Pad Replacement</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">Brake Experts</td>
+                                    <td class="p-4 text-sm text-white font-medium text-right">$200.00</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)] max-w-xs truncate">
+                                        Replaced front brake pads</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">2023-08-01</td>
+                                    <td class="p-4 text-sm text-white font-medium">Air Filter Change</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)]">AutoCare Center</td>
+                                    <td class="p-4 text-sm text-white font-medium text-right">$40.00</td>
+                                    <td class="p-4 text-sm text-[var(--text-secondary-color)] max-w-xs truncate">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

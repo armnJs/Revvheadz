@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <title>RevvHeadz - Add Vehicle</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+        --primary-color: #1173d4;
+      }
+      .form-input {
+        @apply w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-white focus:outline-0 focus:ring-2 focus:ring-[var(--primary-color)] border border-gray-700 bg-gray-800 h-12 placeholder:text-gray-500 p-3 text-sm font-normal leading-normal;
+      }
+      .upload-box {
+        @apply flex flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-gray-700 p-6;
+      }
+      .upload-button {
+        @apply flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-gray-700 text-white text-sm font-medium leading-normal tracking-[0.015em] hover:bg-gray-600 transition-colors;
+      }
+    </style>
+</head>
+
+<body class="bg-gray-900">
+    <div class="relative flex size-full min-h-screen flex-col text-white"
+        style='font-family: Inter, "Noto Sans", sans-serif;'>
+        <div class="flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-800 px-10 py-3">
+                <div class="flex items-center gap-4">
+                    <div class="size-6 text-[var(--primary-color)]">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-white text-xl font-bold leading-tight">RevvHeadz</h1>
+                </div>
+                <nav class="flex flex-1 justify-center gap-8">
+                    <a class="text-gray-300 hover:text-white text-sm font-medium" href="#">Dashboard</a>
+                    <a class="text-white text-sm font-bold border-b-2 border-[var(--primary-color)] pb-1"
+                        href="#">Vehicles</a>
+                    <a class="text-gray-300 hover:text-white text-sm font-medium" href="#">Expenses</a>
+                    <a class="text-gray-300 hover:text-white text-sm font-medium" href="#">Maintenance</a>
+                    <a class="text-gray-300 hover:text-white text-sm font-medium" href="#">Documents</a>
+                    <a class="text-gray-300 hover:text-white text-sm font-medium" href="#">Reminders</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <button
+                        class="flex items-center justify-center rounded-full size-10 bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white transition-colors">
+                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAt5eTaoQ7b-QFjFk5nGfg-rfl8UOSgPD7DmvcFw73j7pD_qGOuqYMK5BupEZURhKYEuhtXC28Pz90928q3i3Gw5Kd7k-zqV_lOgfbRr3N_skhTN7Tg9DWF2RT7ICV2vBtrEJQ0s5sVvcgD8TihxkuON1n1_Zs4p60k9oRvp3uD1eXRLoM5oOZl-eRZDAqCQ8fpG4qLN-RYGjK2JUdF-E_SFcJhzlMD18MEdEIpj-eMgfe9Zr1CiFpzSjOZ0ldKlOUP5cYVp7rRrqc");'>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-1 px-10 py-8">
+                <div class="max-w-3xl mx-auto">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold leading-tight tracking-tight">Add New Vehicle</h2>
+                        <p class="text-gray-400 mt-1">Enter the details of your vehicle to start tracking its
+                            performance and maintenance.</p>
+                    </div>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <label class="flex flex-col">
+                                <span class="text-sm font-medium text-gray-300 pb-2">Make</span>
+                                <input class="form-input" placeholder="e.g., Toyota" type="text" />
+                            </label>
+                            <label class="flex flex-col">
+                                <span class="text-sm font-medium text-gray-300 pb-2">Model</span>
+                                <input class="form-input" placeholder="e.g., Camry" type="text" />
+                            </label>
+                            <label class="flex flex-col">
+                                <span class="text-sm font-medium text-gray-300 pb-2">Year</span>
+                                <input class="form-input" placeholder="e.g., 2023" type="number" />
+                            </label>
+                            <label class="flex flex-col">
+                                <span class="text-sm font-medium text-gray-300 pb-2">License Plate</span>
+                                <input class="form-input" placeholder="e.g., XYZ 1234" type="text" />
+                            </label>
+                        </div>
+                        <label class="flex flex-col">
+                            <span class="text-sm font-medium text-gray-300 pb-2">VIN (Vehicle Identification
+                                Number)</span>
+                            <input class="form-input" placeholder="e.g., 12345ABCDE67890" type="text" />
+                        </label>
+                        <div class="border-t border-gray-800 pt-6">
+                            <h3 class="text-xl font-bold">Insurance Details</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                                <label class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-300 pb-2">Insurance Provider</span>
+                                    <input class="form-input" placeholder="e.g., SecureDrive Insurance" type="text" />
+                                </label>
+                                <label class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-300 pb-2">Policy Number</span>
+                                    <input class="form-input" placeholder="e.g., 9876543210" type="text" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-800 pt-6">
+                            <h3 class="text-xl font-bold">Upload Documents</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                                <div class="upload-box">
+                                    <svg class="text-gray-500" fill="currentColor" height="32" viewBox="0 0 256 256"
+                                        width="32" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M208,88H152V32a8,8,0,0,0-16,0V88H80a8,8,0,0,0-6.64,12.24l48,80a8,8,0,0,0,13.28,0l48-80A8,8,0,0,0,208,88Zm-84.55,80L96,126.65,116.3,168ZM128,155.1,109.11,128H146.89Zm20.89,12.9,20.3-41.35L195.45,168Z">
+                                        </path>
+                                        <path
+                                            d="M224,144a8,8,0,0,0-8,8v48H40V152a8,8,0,0,0-16,0v48a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V152A8,8,0,0,0,224,144Z">
+                                        </path>
+                                    </svg>
+                                    <div class="text-center">
+                                        <p class="text-sm font-medium">Insurance Certificate</p>
+                                        <p class="text-xs text-gray-400">Drag &amp; drop or</p>
+                                    </div>
+                                    <button class="upload-button" type="button">Browse</button>
+                                </div>
+                                <div class="upload-box">
+                                    <svg class="text-gray-500" fill="currentColor" height="32" viewBox="0 0 256 256"
+                                        width="32" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M208,88H152V32a8,8,0,0,0-16,0V88H80a8,8,0,0,0-6.64,12.24l48,80a8,8,0,0,0,13.28,0l48-80A8,8,0,0,0,208,88Zm-84.55,80L96,126.65,116.3,168ZM128,155.1,109.11,128H146.89Zm20.89,12.9,20.3-41.35L195.45,168Z">
+                                        </path>
+                                        <path
+                                            d="M224,144a8,8,0,0,0-8,8v48H40V152a8,8,0,0,0-16,0v48a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V152A8,8,0,0,0,224,144Z">
+                                        </path>
+                                    </svg>
+                                    <div class="text-center">
+                                        <p class="text-sm font-medium">Registration (RC)</p>
+                                        <p class="text-xs text-gray-400">Drag &amp; drop or</p>
+                                    </div>
+                                    <button class="upload-button" type="button">Browse</button>
+                                </div>
+                                <div class="upload-box">
+                                    <svg class="text-gray-500" fill="currentColor" height="32" viewBox="0 0 256 256"
+                                        width="32" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M208,88H152V32a8,8,0,0,0-16,0V88H80a8,8,0,0,0-6.64,12.24l48,80a8,8,0,0,0,13.28,0l48-80A8,8,0,0,0,208,88Zm-84.55,80L96,126.65,116.3,168ZM128,155.1,109.11,128H146.89Zm20.89,12.9,20.3-41.35L195.45,168Z">
+                                        </path>
+                                        <path
+                                            d="M224,144a8,8,0,0,0-8,8v48H40V152a8,8,0,0,0-16,0v48a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V152A8,8,0,0,0,224,144Z">
+                                        </path>
+                                    </svg>
+                                    <div class="text-center">
+                                        <p class="text-sm font-medium">PUC Certificate</p>
+                                        <p class="text-xs text-gray-400">Drag &amp; drop or</p>
+                                    </div>
+                                    <button class="upload-button" type="button">Browse</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end pt-6">
+                            <button
+                                class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-wide hover:bg-blue-600 transition-colors"
+                                type="submit">
+                                <span class="truncate">Save Vehicle</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+
+</html>
