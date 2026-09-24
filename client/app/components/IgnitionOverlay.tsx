@@ -65,43 +65,39 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] bg-[#050608] text-white flex flex-col items-center justify-center p-4 select-none overflow-hidden transition-all duration-700 ${
-        cranking ? "cranking-shake" : ""
-      }`}
+      className={`fixed inset-0 z-[9999] bg-[#050608] text-white flex flex-col items-center justify-center p-4 select-none overflow-hidden transition-all duration-700 ${cranking ? "cranking-shake" : ""
+        }`}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_75%)] pointer-events-none" />
 
       {/* CLUSTER CONTAINER FRAME */}
       <div className="relative w-full max-w-4xl bg-gradient-to-b from-[#1c1e24] via-[#111317] to-[#08090b] border-[3px] border-slate-600/60 rounded-[50px] p-6 sm:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.95),inset_0_2px_6px_rgba(255,255,255,0.25)] flex flex-col items-center">
-        
+
         {/* Top Hood Ridge */}
         <div className="absolute -top-3 w-56 h-3 bg-gradient-to-r from-slate-600 via-slate-200 to-slate-600 rounded-t-xl shadow-lg" />
 
         {/* TOP CENTER ENGINE PUSH START BUTTON */}
         <div className="relative -mt-2 mb-4 z-20 flex flex-col items-center">
           <div
-            className={`relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#2d3036] via-[#1b1d22] to-[#0f1013] p-1.5 flex items-center justify-center shadow-[0_12px_28px_rgba(0,0,0,0.9),inset_0_2px_4px_rgba(255,255,255,0.25)] transition-all duration-300 ${
-              panelReady ? "scale-100 opacity-100 cursor-pointer" : "scale-95 opacity-50 pointer-events-none"
-            }`}
+            className={`relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#2d3036] via-[#1b1d22] to-[#0f1013] p-1.5 flex items-center justify-center shadow-[0_12px_28px_rgba(0,0,0,0.9),inset_0_2px_4px_rgba(255,255,255,0.25)] transition-all duration-300 ${panelReady ? "scale-100 opacity-100 cursor-pointer" : "scale-95 opacity-50 pointer-events-none"
+              }`}
           >
             <div className="absolute inset-1 rounded-full bg-gradient-to-br from-slate-100 via-slate-400 to-slate-800 p-0.5 shadow-inner">
               <div className="w-full h-full bg-[#0a0b0d] rounded-full flex items-center justify-center">
                 <div
-                  className={`absolute inset-1.5 rounded-full border-2 transition-all duration-300 ${
-                    igniting
-                      ? "border-red-500 shadow-[0_0_25px_#ff2a2a,inset_0_0_25px_#ff2a2a] animate-pulse"
-                      : panelReady
+                  className={`absolute inset-1.5 rounded-full border-2 transition-all duration-300 ${igniting
+                    ? "border-red-500 shadow-[0_0_25px_#ff2a2a,inset_0_0_25px_#ff2a2a] animate-pulse"
+                    : panelReady
                       ? "border-amber-400/80 shadow-[0_0_15px_rgba(251,191,36,0.4)]"
                       : "border-slate-800"
-                  }`}
+                    }`}
                 />
 
                 <button
                   onClick={handleStartIgnition}
                   disabled={!panelReady}
-                  className={`relative w-full h-full rounded-full bg-gradient-to-b from-[#26282e] via-[#16181c] to-[#0c0d10] border border-slate-700 flex flex-col items-center justify-center transition-all duration-100 active:scale-95 active:translate-y-0.5 ${
-                    igniting ? "text-red-500" : "text-slate-200 hover:text-white"
-                  }`}
+                  className={`relative w-full h-full rounded-full bg-gradient-to-b from-[#26282e] via-[#16181c] to-[#0c0d10] border border-slate-700 flex flex-col items-center justify-center transition-all duration-100 active:scale-95 active:translate-y-0.5 ${igniting ? "text-red-500" : "text-slate-200 hover:text-white"
+                    }`}
                 >
                   <span className="text-[8px] sm:text-[9px] font-extrabold tracking-[2px] text-amber-400 mb-0.5">ENGINE</span>
                   <span className={`text-xs sm:text-sm font-black tracking-widest ${igniting ? "text-red-500 drop-shadow-[0_0_8px_rgba(255,42,42,0.9)]" : "text-white"}`}>
@@ -140,18 +136,18 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
             <g transform="translate(110, 170)">
               <circle r="60" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="6" />
               <circle r="52" fill="none" stroke="#333842" strokeWidth="1" />
-              
+
               {/* Right Fuel Arc Line */}
               <path d="M 44 -15 A 48 48 0 0 1 44 25" fill="none" stroke="#64748b" strokeWidth="2.5" strokeDasharray="3,3" />
               <path d="M 44 20 A 48 48 0 0 1 42 28" fill="none" stroke="#ef4444" strokeWidth="3" />
-              
+
               {/* Labels */}
               <text x="-30" y="2" fill="#e2e8f0" fontSize="16" fontFamily="sans-serif">⛽</text>
               <text x="26" y="-12" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">F</text>
               <text x="26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">E</text>
 
               {/* Fuel Needle */}
-              <g transform={`rotate(${sweeping ? -15 : 25})`}>
+              <g transform={`rotate(${sweeping ? 120 : 70})`}>
                 <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
                 <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
@@ -191,11 +187,6 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </g>
 
               {/* Right Side Digital LCD Window */}
-              <rect x="10" y="-22" width="76" height="44" rx="3" fill="#040507" stroke="#475569" strokeWidth="1.5" />
-              <text x="48" y="0" textAnchor="middle" dominantBaseline="central" fill="#38bdf8" fontSize="12" fontFamily="monospace" fontWeight="bold">
-                {sweeping ? "185" : panelReady ? "SYS OK" : "DIAG"}
-              </text>
-
               <text x="-36" y="52" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="sans-serif" fontStyle="italic">
                 MPH
               </text>
@@ -236,12 +227,6 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
                 <text x="-12" y="-76">8</text>
               </g>
 
-              {/* Left Side Digital LCD Window */}
-              <rect x="-86" y="-22" width="76" height="44" rx="3" fill="#040507" stroke="#475569" strokeWidth="1.5" />
-              <text x="-48" y="0" textAnchor="middle" dominantBaseline="central" fill="#f59e0b" fontSize="12" fontFamily="monospace" fontWeight="bold">
-                {sweeping ? "7200" : panelReady ? "READY" : "DIAG"}
-              </text>
-
               <text x="-60" y="48" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="sans-serif" fontStyle="italic">
                 RPM
               </text>
@@ -250,7 +235,7 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </text>
 
               {/* Tachometer Needle (Resting at 0 RPM at bottom-left) */}
-              <g transform={`rotate(${sweeping ? 110 : -142})`} className="transition-transform duration-75">
+              <g transform={`rotate(${sweeping ? -351 : 9})`} className="transition-transform duration-75">
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
                 <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
@@ -260,7 +245,7 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
             <g transform="translate(790, 170)">
               <circle r="60" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="6" />
               <circle r="52" fill="none" stroke="#333842" strokeWidth="1" />
-              
+
               {/* Left Temp Arc Line */}
               <path d="M -44 -15 A 48 48 0 0 0 -44 25" fill="none" stroke="#64748b" strokeWidth="2.5" strokeDasharray="3,3" />
               <path d="M -44 -15 A 48 48 0 0 1 -42 -22" fill="none" stroke="#ef4444" strokeWidth="3" />
@@ -271,7 +256,7 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               <text x="-26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">C</text>
 
               {/* Temp Needle (Resting in Middle) */}
-              <g transform={`rotate(${sweeping ? 15 : -90})`}>
+              <g transform={`rotate(${sweeping ? 240 : -95})`}>
                 <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
                 <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
