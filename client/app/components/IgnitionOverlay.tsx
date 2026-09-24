@@ -157,38 +157,40 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </g>
             </g>
 
-            {/* 2. LEFT MAIN SPEEDOMETER DIAL (20 to 200 MPH - Clockwise layout) */}
+            {/* 2. LEFT MAIN SPEEDOMETER DIAL (0 to 200 MPH - Clockwise layout) */}
             <g transform="translate(310, 170)">
               <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
               <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
 
               {/* Major Tick Marks & Numbers */}
-              {/* 20 */} <line x1="-80" y1="70" x2="-68" y2="59" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 40 */} <line x1="-102" y1="28" x2="-88" y2="24" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 60 */} <line x1="-106" y1="-18" x2="-90" y2="-15" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 80 */} <line x1="-88" y1="-62" x2="-74" y2="-52" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 100 */} <line x1="-52" y1="-94" x2="-44" y2="-79" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 0 */} <line x1="-68" y1="84" x2="-57" y2="70" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 20 */} <line x1="-92" y1="52" x2="-78" y2="44" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 40 */} <line x1="-106" y1="12" x2="-90" y2="10" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 60 */} <line x1="-102" y1="-32" x2="-86" y2="-27" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 80 */} <line x1="-78" y1="-72" x2="-66" y2="-60" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 100 */} <line x1="-40" y1="-98" x2="-34" y2="-82" stroke="#cbd5e1" strokeWidth="2.5" />
               {/* 120 */} <line x1="0" y1="-106" x2="0" y2="-90" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 140 */} <line x1="52" y1="-94" x2="44" y2="-79" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 160 */} <line x1="88" y1="-62" x2="74" y2="-52" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 180 */} <line x1="106" y1="-18" x2="90" y2="-15" stroke="#cbd5e1" strokeWidth="2.5" />
-              {/* 200 */} <line x1="102" y1="28" x2="88" y2="24" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 140 */} <line x1="40" y1="-98" x2="34" y2="-82" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 160 */} <line x1="78" y1="-72" x2="66" y2="-60" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 180 */} <line x1="102" y1="-32" x2="86" y2="-27" stroke="#cbd5e1" strokeWidth="2.5" />
+              {/* 200 */} <line x1="106" y1="12" x2="90" y2="10" stroke="#cbd5e1" strokeWidth="2.5" />
 
               {/* Numbers */}
               <g textAnchor="middle" dominantBaseline="central" fill="#f8fafc" fontSize="13" fontFamily="sans-serif">
-                <text x="-58" y="52">20</text>
-                <text x="-76" y="20">40</text>
-                <text x="-78" y="-12">60</text>
-                <text x="-62" y="-45">80</text>
-                <text x="-36" y="-68">100</text>
-                <text x="0" y="-76">120</text>
-                <text x="36" y="-68">140</text>
-                <text x="62" y="-45">160</text>
-                <text x="78" y="-12">180</text>
-                <text x="74" y="20">200</text>
+                <text x="-46" y="60">0</text>
+                <text x="-66" y="36">20</text>
+                <text x="-76" y="8">40</text>
+                <text x="-72" y="-22">60</text>
+                <text x="-52" y="-52">80</text>
+                <text x="-26" y="-72">100</text>
+                <text x="0" y="-78">120</text>
+                <text x="26" y="-72">140</text>
+                <text x="52" y="-52">160</text>
+                <text x="72" y="-22">180</text>
+                <text x="76" y="8">200</text>
               </g>
 
-              {/* Right Side Digital LCD Window (Aston Martin Spec) */}
+              {/* Right Side Digital LCD Window */}
               <rect x="10" y="-22" width="76" height="44" rx="3" fill="#040507" stroke="#475569" strokeWidth="1.5" />
               <text x="48" y="0" textAnchor="middle" dominantBaseline="central" fill="#38bdf8" fontSize="12" fontFamily="monospace" fontWeight="bold">
                 {sweeping ? "185" : panelReady ? "SYS OK" : "DIAG"}
@@ -197,18 +199,15 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               <text x="-36" y="52" textAnchor="middle" fill="#94a3b8" fontSize="11" fontFamily="sans-serif" fontStyle="italic">
                 MPH
               </text>
-              <text x="-36" y="64" textAnchor="middle" fill="#64748b" fontSize="8" fontFamily="monospace">
-                X 1000
-              </text>
 
-              {/* Needle (Sweeps Left to Right) */}
-              <g transform={`rotate(${sweeping ? 115 : -125})`} className="transition-transform duration-75">
+              {/* Speedometer Needle (Resting at 0 MPH) */}
+              <g transform={`rotate(${sweeping ? 115 : -142})`} className="transition-transform duration-75">
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
                 <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
             </g>
 
-            {/* 3. RIGHT MAIN TACHOMETER DIAL (Aston Martin Spec: 0 starts bottom left, sweeps COUNTER-CLOCKWISE up right to left: 1, 2, 3, 4, 5, 6, 7, 8 top left) */}
+            {/* 3. RIGHT MAIN TACHOMETER DIAL (0 to 8 RPM / Counter-clockwise layout) */}
             <g transform="translate(590, 170)">
               <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
               <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
@@ -237,7 +236,7 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
                 <text x="-12" y="-76">8</text>
               </g>
 
-              {/* Left Side Digital LCD Window (Aston Martin Spec) */}
+              {/* Left Side Digital LCD Window */}
               <rect x="-86" y="-22" width="76" height="44" rx="3" fill="#040507" stroke="#475569" strokeWidth="1.5" />
               <text x="-48" y="0" textAnchor="middle" dominantBaseline="central" fill="#f59e0b" fontSize="12" fontFamily="monospace" fontWeight="bold">
                 {sweeping ? "7200" : panelReady ? "READY" : "DIAG"}
@@ -250,14 +249,14 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
                 X 1000
               </text>
 
-              {/* Needle (Counter-Sweeps Counter-Clockwise from 0 to 8) */}
-              <g transform={`rotate(${sweeping ? -120 : 125})`} className="transition-transform duration-75">
+              {/* Tachometer Needle (Resting at 0 RPM at bottom-left) */}
+              <g transform={`rotate(${sweeping ? 110 : -142})`} className="transition-transform duration-75">
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
                 <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
             </g>
 
-            {/* 4. RIGHT AUXILIARY ENGINE TEMP GAUGE (Temp Icon on Right, C/H Arc on Left) */}
+            {/* 4. RIGHT AUXILIARY ENGINE TEMP GAUGE (Resting in Middle) */}
             <g transform="translate(790, 170)">
               <circle r="60" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="6" />
               <circle r="52" fill="none" stroke="#333842" strokeWidth="1" />
@@ -271,28 +270,21 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               <text x="-26" y="-12" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">H</text>
               <text x="-26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">C</text>
 
-              {/* Temp Needle */}
-              <g transform={`rotate(${sweeping ? -15 : -45})`}>
+              {/* Temp Needle (Resting in Middle) */}
+              <g transform={`rotate(${sweeping ? 15 : -90})`}>
                 <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
                 <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
             </g>
 
-            {/* ASTON MARTIN WINGED EMBLEM IN BOTTOM LEFT */}
-            <g transform="translate(100, 290)">
-              <path d="M-40 0 Q-15 -6 0 0 Q15 -6 40 0 Q15 -1.5 -40 0 Z" fill="none" stroke="#94a3b8" strokeWidth="1.2" />
-              <circle r="6" fill="#1e293b" stroke="#94a3b8" strokeWidth="1" />
-              <text x="0" y="14" textAnchor="middle" fill="#cbd5e1" fontSize="8" fontFamily="serif" fontWeight="bold" letterSpacing="3">
-                ASTON MARTIN
-              </text>
-            </g>
-
-            {/* REVVHEADZ BRANDING CENTER BOTTOM */}
-            <g transform="translate(450, 310)">
-              <text x="0" y="0" textAnchor="middle" fill="#e2e8f0" fontSize="11" fontFamily="serif" fontWeight="bold" letterSpacing="5">
+            {/* REVVHEADZ BRANDING & WING EMBLEM CENTER BOTTOM */}
+            <g transform="translate(450, 305)">
+              <path d="M-40 -12 Q-15 -18 0 -12 Q15 -18 40 -12 Q15 -13.5 -40 -12 Z" fill="none" stroke="#94a3b8" strokeWidth="1.2" />
+              <circle cx="0" cy="-12" r="5" fill="#1e293b" stroke="#94a3b8" strokeWidth="1" />
+              <text x="0" y="6" textAnchor="middle" fill="#e2e8f0" fontSize="11" fontFamily="serif" fontWeight="bold" letterSpacing="5">
                 REVVHEADZ
               </text>
-              <text x="0" y="12" textAnchor="middle" fill="#64748b" fontSize="7" fontFamily="monospace" letterSpacing="2">
+              <text x="0" y="18" textAnchor="middle" fill="#64748b" fontSize="7" fontFamily="monospace" letterSpacing="2">
                 VIRTUAL AUTOMOTIVE OS
               </text>
             </g>
