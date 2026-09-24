@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import AddVehicleModal from "../components/AddVehicleModal";
 import AddServiceModal from "../components/AddServiceModal";
 import AddFuelModal from "../components/AddFuelModal";
+import IgnitionOverlay from "../components/IgnitionOverlay";
 import { fetchVehicles, fetchAnalytics } from "../api";
 import {
   Car,
@@ -20,6 +21,7 @@ import {
   AlertCircle
 } from "lucide-react";
 
+
 export function meta() {
   return [
     { title: "RevvHeadz | Virtual Personal Garage Dashboard" },
@@ -31,11 +33,23 @@ export default function Dashboard() {
   const [vehicles, setVehicles] = useState<any[]>([]);
   const [analytics, setAnalytics] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [showIgnition, setShowIgnition] = useState(() => {
+    // Only show once per session or default to true on fresh load
+    if (typeof window !== "undefined") {
+      return !sessionStorage.getItem("revvheadz_ignited");
+    }
+    return true;
+  });
 
   // Modals state
   const [isVehicleModalOpen, setIsVehicleModalOpen] = useState(false);
   const [isServiceModalOpen, setIsServiceModalOpen] = useState(false);
   const [isFuelModalOpen, setIsFuelModalOpen] = useState(false);
+
+  const handleIgnitionComplete = () => {
+    sessionStorage.setItem("revvheadz_ignited", "true");
+    setShowIgnition(false);
+  };
 
   const loadData = async () => {
     try {
@@ -59,7 +73,9 @@ export default function Dashboard() {
 
   return (
     <div className="flex min-h-screen bg-[#18181B] text-slate-200 font-sans">
+      {showIgnition && <IgnitionOverlay onStart={handleIgnitionComplete} />}
       <Sidebar onOpenAddVehicle={() => setIsVehicleModalOpen(true)} />
+
 
       <div className="flex-1 flex flex-col min-w-0">
         <Navbar

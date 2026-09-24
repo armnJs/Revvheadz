@@ -13,3 +13,34 @@ body {
     color-scheme: dark;
   }
 }
+
+/* Needle Full Rotation Animation */
+@keyframes needleSweep {
+  0% { transform: translateX(-50%) rotate(-120deg); }
+  50% { transform: translateX(-50%) rotate(120deg); }
+  100% { transform: translateX(-50%) rotate(-120deg); }
+}
+
+.needle-sweep-active {
+  animation: needleSweep 2.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+}
+
+@keyframes engine-crank {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  50% { transform: translate(-1.5px, -1px) rotate(0.4deg); }
+  100% { transform: translate(1px, 0.5px) rotate(-0.3deg); }
+}
+
+.cranking-shake {
+  animation: engine-crank 0.07s infinite !important;
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
