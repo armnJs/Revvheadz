@@ -12,11 +12,11 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setSweeping(true), 300);
+    const timer1 = setTimeout(() => setSweeping(true), 200);
     const timer2 = setTimeout(() => {
       setSweeping(false);
       setPanelReady(true);
-    }, 2600);
+    }, 4200);
 
     return () => {
       clearTimeout(timer1);
@@ -147,14 +147,18 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               <text x="26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">E</text>
 
               {/* Fuel Needle */}
-              <g transform={`rotate(${sweeping ? 120 : 70})`}>
+              <g transform={`rotate(${sweeping ? 120 : 70})`}
+                style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
+              >
                 <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
                 <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
             </g>
 
             {/* 2. LEFT MAIN SPEEDOMETER DIAL (0 to 200 MPH - Clockwise layout) */}
-            <g transform="translate(310, 170)">
+            <g transform="translate(310, 170)"
+              style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
+            >
               <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
               <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
 
@@ -199,7 +203,9 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
             </g>
 
             {/* 3. RIGHT MAIN TACHOMETER DIAL (0 to 8 RPM / Counter-clockwise layout) */}
-            <g transform="translate(590, 170)">
+            <g transform="translate(590, 170)"
+              style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
+            >
               <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
               <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
 
@@ -242,7 +248,9 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
             </g>
 
             {/* 4. RIGHT AUXILIARY ENGINE TEMP GAUGE (Resting in Middle) */}
-            <g transform="translate(790, 170)">
+            <g transform="translate(790, 170)"
+              style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
+            >
               <circle r="60" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="6" />
               <circle r="52" fill="none" stroke="#333842" strokeWidth="1" />
 
