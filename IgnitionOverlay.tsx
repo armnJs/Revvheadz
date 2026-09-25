@@ -156,9 +156,7 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
             </g>
 
             {/* 2. LEFT MAIN SPEEDOMETER DIAL (0 to 200 MPH - Clockwise layout) */}
-            <g transform="translate(310, 170)"
-              style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
-            >
+            <g transform="translate(310, 170)">
               <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
               <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
 
@@ -196,16 +194,16 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </text>
 
               {/* Speedometer Needle (Resting at 0 MPH) */}
-              <g transform={`rotate(${sweeping ? 96 : -141})`} className="transition-transform duration-75">
+              <g transform={`rotate(${sweeping ? 96 : -141})`}
+                style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
+              >
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
                 <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
             </g>
 
             {/* 3. RIGHT MAIN TACHOMETER DIAL (0 to 8 RPM / Counter-clockwise layout) */}
-            <g transform="translate(590, 170)"
-              style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
-            >
+            <g transform="translate(590, 170)">
               <circle r="125" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="8" />
               <circle r="114" fill="none" stroke="#475569" strokeWidth="1.5" />
 
@@ -241,16 +239,16 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </text>
 
               {/* Tachometer Needle (Resting at 0 RPM at bottom-left) */}
-              <g transform={`rotate(${sweeping ? -10 : 209})`} className="transition-transform duration-75">
+              <g transform={`rotate(${sweeping ? -10 : 209})`}
+                style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
+              >
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
                 <circle r="14" fill="#0f172a" stroke="#94a3b8" strokeWidth="2" />
               </g>
             </g>
 
             {/* 4. RIGHT AUXILIARY ENGINE TEMP GAUGE (Resting in Middle) */}
-            <g transform="translate(790, 170)"
-              style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
-            >
+            <g transform="translate(790, 170)">
               <circle r="60" fill="url(#innerBezel)" stroke="url(#silverTrim)" strokeWidth="6" />
               <circle r="52" fill="none" stroke="#333842" strokeWidth="1" />
 
@@ -264,7 +262,9 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               <text x="-26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">C</text>
 
               {/* Temp Needle (Resting in Middle) */}
-              <g transform={`rotate(${sweeping ? 240 : -95})`}>
+              <g transform={`rotate(${sweeping ? 240 : -95})`}
+                style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
+              >
                 <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
                 <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
