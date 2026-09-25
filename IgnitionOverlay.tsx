@@ -194,7 +194,8 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </text>
 
               {/* Speedometer Needle (Resting at 0 MPH) */}
-              <g transform={`rotate(${sweeping ? 96 : -141})`}
+              <g
+                transform={`rotate(${sweeping ? 96 : -141})`}
                 style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
               >
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
@@ -239,7 +240,8 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
               </text>
 
               {/* Tachometer Needle (Resting at 0 RPM at bottom-left) */}
-              <g transform={`rotate(${sweeping ? -10 : 209})`}
+              <g
+                transform={`rotate(${sweeping ? -10 : 209})`}
                 style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
               >
                 <line x1="0" y1="16" x2="0" y2="-102" stroke="#e2e8f0" strokeWidth="3" strokeLinecap="round" />
@@ -258,17 +260,19 @@ export default function IgnitionOverlay({ onStart }: IgnitionOverlayProps) {
 
               {/* Labels */}
               <text x="26" y="2" fill="#e2e8f0" fontSize="16" fontFamily="sans-serif">🌡️</text>
-              <text x="-26" y="-12" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">H</text>
-              <text x="-26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif" italic="true">C</text>
+              <text x="-26" y="-12" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif">H</text>
+              <text x="-26" y="24" fill="#cbd5e1" fontSize="13" fontFamily="sans-serif">C</text>
 
               {/* Temp Needle (Resting in Middle) */}
-              <g transform={`rotate(${sweeping ? 240 : -95})`}
+              <g
+                transform={`rotate(${sweeping ? 240 : -95})`}
                 style={{ transition: 'transform 2000ms cubic-bezier(0.25, 1, 0.5, 1)' }}
               >
                 <line x1="0" y1="12" x2="0" y2="-44" stroke="#e2e8f0" strokeWidth="2.5" strokeLinecap="round" />
                 <circle r="8" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
               </g>
             </g>
+
 
             {/* REVVHEADZ BRANDING & WING EMBLEM CENTER BOTTOM */}
             <g transform="translate(450, 305)">
